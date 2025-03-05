@@ -4,8 +4,7 @@ import TrafficLight from './TrafficLight/TrafficLight'
 function App() {
     return (
         <>
-            <TrafficLight />
-            <TrafficLight useTimer/>
+            <p>Happy World :)</p>
         </>
     )
 }
