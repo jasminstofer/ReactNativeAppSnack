@@ -55,7 +55,11 @@ export default function CharacterDetailScreen() {
         <FlatList
     data={character.films}
     keyExtractor={(item, index) => index.toString()}
-    renderItem={({ item }) => <Text style={styles.filmItem}>• {item}</Text>}
+    renderItem={({ item }) => (
+        <View style={styles.filmCard}>
+            <Text style={styles.filmText}>{item}</Text>
+        </View>
+    )}
     />
     </View>
 );
@@ -69,17 +73,17 @@ export default function CharacterDetailScreen() {
         },
         container: {
             flex: 1,
-            backgroundColor: '#fff',
+            backgroundColor: '#f2f2f7', // light grey iOS-style
             padding: 16,
         },
+
         image: {
             width: '100%',
-            height: 280,
-            maxHeight: 300,
+            aspectRatio: 1,          // Initial fallback ratio
             borderRadius: 16,
-            resizeMode: 'cover',
-            backgroundColor: '#eee',
-            marginBottom: 24, // ← add this!
+            resizeMode: 'contain',
+
+            marginBottom: 24,
         },
 
         sectionTitle: {
@@ -90,5 +94,24 @@ export default function CharacterDetailScreen() {
         filmItem: {
             fontSize: 16,
             paddingVertical: 4,
+        },
+        filmCard: {
+            backgroundColor: '#fff',
+            borderRadius: 10,
+            paddingVertical: 14,
+            paddingHorizontal: 16,
+            marginBottom: 10,
+            width: '100%',
+            elevation: 2,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 1 },
+            shadowOpacity: 0.08,
+            shadowRadius: 2,
+        },
+
+        filmText: {
+            fontSize: 16,
+            fontWeight: '500',
+            color: '#1c1c1e', // subtle dark gray instead of black
         },
     });

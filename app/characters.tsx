@@ -108,25 +108,30 @@ const styles = StyleSheet.create({
     },
     list: {
         padding: 16,
-        backgroundColor: '#fff',
+        backgroundColor: '#f2f2f7', // ← soft grey background
     },
     card: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#f9f9f9',
-        borderRadius: 8,
-        padding: 12,
+        backgroundColor: '#fff',      // ← white card
+        borderRadius: 12,
+        padding: 14,
         marginBottom: 12,
-        elevation: 2,
+        elevation: 2,                 // Android shadow
+        shadowColor: '#000',         // iOS shadow
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.08,
+        shadowRadius: 2,
     },
     image: {
         width: 60,
         height: 60,
-        borderRadius: 30,
+        borderRadius: 12,
         marginRight: 12,
     },
     name: {
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '600',
+        color: '#1c1c1e', // Dark gray text (not pure black)
     },
 });
