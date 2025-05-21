@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font';
 import { ExpoRoot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Head from "expo-router/head";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -24,8 +24,8 @@ export default function App() {
 
   // Setup the auth context and render our layout inside of it.
   return (
-    <SafeAreaProvider onLayout={onLayoutRootView}>
-      <ExpoRoot context={require.context('./app')} />
-    </SafeAreaProvider>
+    <Head.Provider>
+      <ExpoRoot context={require.context("./app", true)} location="/" />
+    </Head.Provider>
   );
 }
